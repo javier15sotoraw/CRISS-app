@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRISS - Panel Autónomo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+    <!-- Iconos Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Header Principal -->
+        <header class="header">
+            <h1 class="logo">CRISS</h1>
+        </header>
+
+        <!-- Pantalla Principal: Inicio -->
+        <main id="pantalla-inbox" class="pantalla-app activa">
+            <!-- Sección de la Mascota Centrada -->
+            <div class="hero-section">
+                <img src="avatar.gif" class="mascot-gif" alt="CRISS AI">
+
+            </div>
+            
+            <h2 class="greeting">¡Hola, Edgardo! 👋</h2>
+
+            <!-- Grid de Tarjetas de Control -->
+            <div class="dashboard-grid">
+                <div class="dashboard-card inline-card">
+                    <div class="card-icon-wrapper yellow">
+                        <i data-lucide="zap"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>VENTAS ACTIVAS</h3>
+                        <p>CRISS cerrando 3</p>
+                    </div>
+                </div>
+
+                <div class="dashboard-card inline-card">
+                    <div class="card-icon-wrapper teal">
+                        <i data-lucide="users"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>CRM CRISS</h3>
+                        <p>2 seguimientos hoy</p>
+                    </div>
+                </div>
+
+                <div class="dashboard-card full-card">
+                    <div class="card-icon-wrapper green">
+                        <i data-lucide="send"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>DIRECCIÓN DE MKT</h3>
+                        <p>Campaña de correos enviada <span class="check-mark">✓</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección de Directivas y Chat -->
+            <section class="chat-section">
+                <div class="chat-history" id="chat-history">
+                    <div class="chat-bubble criss">
+                        ¡Hola! Ya envié 2 links de pago de velas esta mañana y estoy negociando un envío por WhatsApp. Dejá todo en mis manos. 😎
+                    </div>
+                </div>
+                
+                <div class="chat-input-wrapper">
+                    <input type="text" id="chat-input-text" class="chat-input" placeholder="Dale una directiva a CRISS...">
+                    <button id="chat-send-btn" class="chat-btn">Enviar</button>
+                </div>
+            </section>
+        </main>
+
+        <!-- Pantalla 2: Mkt -->
+        <main id="pantalla-mkt" class="pantalla-app">
+            <div class="placeholder-screen">
+                <i data-lucide="megaphone"></i>
+                <h2>Campañas de Marketing</h2>
+                <p>CRISS está automatizando tus correos y publicaciones.</p>
+            </div>
+        </main>
+
+        <!-- Pantalla 3: Stock -->
+        <main id="pantalla-stock" class="pantalla-app">
+            <div id="contenedor-stock">
+                <!-- Dinámico desde stock.js -->
+            </div>
+        </main>
+
+        <!-- Pantalla 4: Auto (Automatizaciones) -->
+        <main id="pantalla-auto" class="pantalla-app">
+            <div class="placeholder-screen">
+                <i data-lucide="bot"></i>
+                <h2>Comercio Autónomo</h2>
+                <p>Motor de ventas por WhatsApp y redes activo.</p>
+            </div>
+        </main>
+
+        <!-- Pantalla 5: Ajustes -->
+        <main id="pantalla-ajustes" class="pantalla-app">
+            <div class="placeholder-screen">
+                <i data-lucide="settings"></i>
+                <h2>Configuración</h2>
+                <p>Control de credenciales, prompts y variables de entorno.</p>
+            </div>
+        </main>
+
+        <!-- Barra de Navegación Inferior Completa (5 Botones) -->
+        <nav class="bottom-nav">
+            <div class="nav-item active" onclick="navegar('inbox', this)">
+                <i data-lucide="home"></i>
+                <span class="nav-text">Inicio</span>
+            </div>
+            <div class="nav-item" onclick="navegar('mkt', this)">
+                <i data-lucide="megaphone"></i>
+                <span class="nav-text">Mkt</span>
+            </div>
+            <div class="nav-item" onclick="navegar('stock', this)">
+                <i data-lucide="package"></i>
+                <span class="nav-text">Stock</span>
+            </div>
+            <div class="nav-item" onclick="navegar('auto', this)">
+                <i data-lucide="bot"></i>
+                <span class="nav-text">Auto</span>
+            </div>
+            <div class="nav-item" onclick="navegar('ajustes', this)">
+                <i data-lucide="settings"></i>
+                <span class="nav-text">Ajustes</span>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Scripts -->
+    <script src="datos.js"></script>
+    <script src="app.js"></script>
+    <script src="stock.js"></script>
+    <script src="finanzas.js"></script>
+</body>
+</html>

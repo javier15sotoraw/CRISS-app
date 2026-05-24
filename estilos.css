@@ -1,0 +1,298 @@
+:root {
+    --brand-teal: #438f83;
+    --brand-dark: #1e3b4a;
+    --bg-app: #f4f6f5;
+    --bg-card: #ffffff;
+    --text-main: #1f3541;
+    --text-muted: #6e8693;
+    --bubble-bg: #e6eded;
+    --chat-input-bg: #ebf0f1;
+}
+
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+    font-family: 'Inter', sans-serif; 
+    -webkit-font-smoothing: antialiased; 
+}
+
+body { 
+    background-color: #dbe2e3; 
+    display: flex; 
+    justify-content: center; 
+    min-height: 100vh; 
+    overflow: hidden; 
+}
+
+/* Contenedor Principal de la App (Estilo Celular Fijo) */
+.app-container { 
+    width: 100%; 
+    max-width: 410px; 
+    height: 100vh; 
+    background-color: var(--bg-app); 
+    display: flex; 
+    flex-direction: column; 
+    position: relative; 
+    box-shadow: 0 0 40px rgba(0,0,0,0.12); 
+    overflow: hidden; 
+}
+
+/* Header Minimalista */
+.header { 
+    background-color: transparent; 
+    width: 100%; 
+    padding: 24px 24px 10px; 
+    display: flex;
+    justify-content: flex-start;
+    flex-shrink: 0;
+    z-index: 50;
+}
+.logo { 
+    font-size: 28px; 
+    font-weight: 800; 
+    color: var(--brand-dark); 
+    letter-spacing: -1.5px; 
+}
+
+/* Pantallas */
+.pantalla-app { 
+    display: none; 
+    flex-direction: column; 
+    flex: 1; 
+    overflow-y: auto; 
+    padding-bottom: 95px; 
+}
+.pantalla-app.activa { 
+    display: flex; 
+    animation: aparecer 0.3s ease; 
+}
+
+@keyframes aparecer { 
+    from { opacity: 0; transform: translateY(8px); } 
+    to { opacity: 1; transform: translateY(0); } 
+}
+
+/* Sección de la Mascota */
+.hero-section { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    margin: 15px 0 10px; 
+    padding: 0 24px; 
+}
+.mascot-gif { 
+    width: 140px; 
+    height: 140px; 
+    object-fit: cover; 
+    border-radius: 40px; 
+    box-shadow: 0 10px 30px rgba(67, 143, 131, 0.15); 
+}
+
+/* Saludo */
+.greeting { 
+    font-size: 24px; 
+    font-weight: 800; 
+    color: var(--brand-dark); 
+    text-align: center; 
+    margin-bottom: 24px; 
+    letter-spacing: -0.5px;
+}
+
+/* Grid de Tarjetas */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding: 0 24px;
+    margin-bottom: 20px;
+}
+
+.dashboard-card {
+    background: var(--bg-card);
+    border-radius: 18px;
+    padding: 16px;
+    border: 1px solid rgba(0,0,0,0.02);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.full-card {
+    grid-column: span 2;
+}
+
+.card-icon-wrapper {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card-icon-wrapper i {
+    width: 18px;
+    height: 38px;
+}
+
+.card-icon-wrapper.yellow { background-color: #fffbeb; color: #d97706; }
+.card-icon-wrapper.teal { background-color: #f0fdfa; color: #0d9488; }
+.card-icon-wrapper.green { background-color: #f0fdf4; color: #16a34a; }
+
+.card-content h3 {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+}
+.card-content p {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--brand-dark);
+}
+.check-mark {
+    color: #16a34a;
+    font-weight: 800;
+}
+
+/* Chat e Inputs */
+.chat-section { 
+    margin: 0 24px; 
+    background: var(--bg-card); 
+    border-radius: 24px; 
+    padding: 20px; 
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03); 
+    display: flex; 
+    flex-direction: column; 
+    gap: 16px; 
+    border: 1px solid rgba(0,0,0,0.01);
+}
+.chat-history { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 10px; 
+    max-height: 180px; 
+    overflow-y: auto; 
+}
+
+.chat-bubble { 
+    padding: 14px 18px; 
+    border-radius: 20px; 
+    font-size: 13px; 
+    line-height: 1.45; 
+}
+.chat-bubble.criss { 
+    background: var(--bubble-bg); 
+    color: var(--brand-dark); 
+    align-self: flex-start; 
+    border-bottom-left-radius: 4px; 
+    font-weight: 500;
+}
+.chat-bubble.user { 
+    background: var(--brand-dark); 
+    color: white; 
+    align-self: flex-end; 
+    border-bottom-right-radius: 4px; 
+    font-weight: 500;
+}
+
+.chat-input-wrapper { 
+    display: flex; 
+    gap: 10px; 
+}
+.chat-input { 
+    flex: 1; 
+    border: none; 
+    background-color: var(--chat-input-bg); 
+    padding: 0 20px; 
+    height: 48px; 
+    border-radius: 24px; 
+    font-size: 13px; 
+    outline: none; 
+    color: var(--text-main);
+    font-weight: 500;
+}
+.chat-input::placeholder {
+    color: var(--text-muted);
+}
+.chat-btn { 
+    background-color: var(--brand-teal); 
+    color: white; 
+    border: none; 
+    height: 48px; 
+    padding: 0 22px; 
+    border-radius: 24px; 
+    font-weight: 600; 
+    cursor: pointer; 
+    transition: background-color 0.2s;
+}
+.chat-btn:hover {
+    background-color: #387b72;
+}
+
+/* Pantallas Vacías (Mkt, Auto, Ajustes) */
+.placeholder-screen {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    text-align: center;
+    color: var(--brand-dark);
+}
+.placeholder-screen i {
+    width: 48px;
+    height: 48px;
+    color: var(--brand-teal);
+    margin-bottom: 16px;
+}
+.placeholder-screen h2 {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+.placeholder-screen p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+/* Barra de Navegación Inferior (Estilo Flotante) */
+.bottom-nav { 
+    position: absolute; 
+    bottom: 0; 
+    left: 0; 
+    right: 0; 
+    height: 80px; 
+    background: var(--bg-card); 
+    display: flex; 
+    justify-content: space-around; 
+    align-items: center; 
+    border-top: 1px solid rgba(0,0,0,0.04); 
+    border-radius: 28px 28px 0 0; 
+    z-index: 100; 
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.02);
+}
+.nav-item { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 4px; 
+    color: #a4b3b6; 
+    cursor: pointer; 
+    transition: color 0.2s;
+}
+.nav-item i {
+    width: 22px;
+    height: 22px;
+}
+.nav-item.active { 
+    color: var(--brand-teal); 
+}
+.nav-text { 
+    font-size: 10px; 
+    font-weight: 700; 
+}
